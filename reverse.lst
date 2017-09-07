@@ -1,0 +1,61 @@
+Microsoft (R) Macro Assembler Version 6.11		    09/05/17 21:39:50
+tempfile.asm						     Page 1 - 1
+
+
+				assume cs:code
+ 0000				code segment
+ 0000  0001 0002 0003			dw 01h,02h,03h,04h,05h,06h,07h,08h
+       0004 0005 0006
+       0007 0008
+ 0010  0000 0000 0000			dw 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+       0000 0000 0000
+       0000 0000 0000
+       0000 0000 0000
+       0000 0000 0000
+       0000
+					
+ 0030					start:
+ 0030  8C C8				mov ax,cs
+ 0032  8E D0				mov ss,ax
+ 0034  BC 0030				mov sp,30h
+ 0037  B9 0008				mov cx,8
+ 003A  BB 0000				mov bx,0
+					
+ 003D  2E: FF 37			s:push cs:[bx]
+ 0040  83 C3 02				add bx,2
+ 0043  E2 F8				loop s
+					
+ 0045  B9 0008				mov cx,8
+ 0048  BB 0000				mov bx,0
+ 004B  2E: 8F 07			s1: pop cs:[bx]
+ 004E  83 C3 02				add bx,2
+ 0051  E2 F8				loop s1
+					
+ 0053  B8 4C00				mov ax,4c00h
+ 0056  CD 21				int 21h
+ 0058				code ends
+				end start
+
+Microsoft (R) Macro Assembler Version 6.11		    09/05/17 21:39:50
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+code . . . . . . . . . . . . . .	16 Bit	 0058	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+s1 . . . . . . . . . . . . . . .	L Near	 004B	  code	
+start  . . . . . . . . . . . . .	L Near	 0030	  code	
+s  . . . . . . . . . . . . . . .	L Near	 003D	  code	
+
+	   0 Warnings
+	   0 Errors

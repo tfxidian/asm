@@ -1,0 +1,46 @@
+Microsoft (R) Macro Assembler Version 6.11		    09/05/17 19:46:50
+tempfile.asm						     Page 1 - 1
+
+
+				assume cs:code
+ 0000				code segment
+ 0000  0001 0002 0003			dw 01h,02h,03h,04h,05h,06h,07h,08h
+       0004 0005 0006
+       0007 0008
+ 0010					start: 
+ 0010  B8 0000				mov ax,0
+ 0013  BB 0000				mov bx,0
+ 0016  B9 0008				mov cx,8
+ 0019  2E: 03 07			s: add ax,cs:[bx]
+ 001C  83 C3 02				add bx,2
+ 001F  E2 F8				loop s
+					
+ 0021  B8 4C00				mov ax,4c00h
+ 0024  CD 21				int 21h
+ 0026				code ends
+				end start
+					
+					
+
+Microsoft (R) Macro Assembler Version 6.11		    09/05/17 19:46:50
+tempfile.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+code . . . . . . . . . . . . . .	16 Bit	 0026	  Para	  Private 
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+start  . . . . . . . . . . . . .	L Near	 0010	  code	
+s  . . . . . . . . . . . . . . .	L Near	 0019	  code	
+
+	   0 Warnings
+	   0 Errors
